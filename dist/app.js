@@ -23,3 +23,14 @@ document.querySelectorAll('.enquiry-form').forEach(form => form.addEventListener
  form.querySelector('.form-status').textContent = 'Please send your draft from your email app. If no app opens, call +91 89616 29333 or email admission@runaxinstitute.com. Your enquiry has not been sent by this page.';
 }));
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Animate each published statistic once when it enters the viewport.
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+ const counters = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (!entry.isIntersecting) return;
+  const element = entry.target, target = Number(element.dataset.count), start = performance.now();
+  const tick = now => { const progress = Math.min((now - start) / 1200, 1); element.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3)))); if (progress < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick); counters.unobserve(element);
+ }), {threshold: .8});
+ document.querySelectorAll('[data-count]').forEach(element => counters.observe(element));
+}

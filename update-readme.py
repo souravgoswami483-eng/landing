@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('README.md');s=p.read_text();s=s.replace('The sample testimonials and unsupported statistics in the PDF were replaced with sourced institute information and associates.','The testimonials and Why Choose Us statistics use the supplied PDF, as confirmed by the user. The mobile contact bar uses +91 89616 29333 for calls and WhatsApp.');s+='\nUpdated: student-final.png CTA cutout, glassmorphism forms with Submit labels, three student testimonials, animated statistics and icons, and 16 associate logos.\n';p.write_text(s)
