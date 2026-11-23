@@ -1,1 +1,1 @@
-{"name":"runax-landing","version":"1.0.0","private":true,"scripts":{"dev":"node server.mjs","check":"node --check dist/app.js"}}
+{"name":"runax-landing","version":"1.0.0","private":true,"scripts":{"dev":"node server.mjs","check":"node --check app.js && node --check dist/app.js"}}
